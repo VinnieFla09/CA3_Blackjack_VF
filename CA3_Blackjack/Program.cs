@@ -96,6 +96,8 @@ namespace CA3_Blackjack
                     //If the user draws an ace ask if they want to use it as 1 or 11
                     if (cardValue == 1)
                     {
+                        //Reset font color
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("You have drawn an Ace.\nPlease enter if you wish the ace to be worth 11 or 1....");
                         validEntry = Int32.TryParse(Console.ReadLine(), out cardValue);
 
@@ -110,6 +112,8 @@ namespace CA3_Blackjack
                     }
                     //Add new card value to the total and display which card was dealt
                     playerTotal += cardValue;
+                    //Reset font color
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
                     //Display new total for player
                     Console.WriteLine("Player total is {0}", playerTotal);
                     //Pause the program
@@ -128,6 +132,8 @@ namespace CA3_Blackjack
                     cardValue = newDeck.GetCard(cardIndex, out face, out suit); 
                     if (cardValue == 1)
                     {
+                        //Reset font color
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("You have drawn an Ace.\nPlease enter if you wish the ace to be worth 11 or 1....");
                         validEntry = Int32.TryParse(Console.ReadLine(), out cardValue);
 
@@ -140,8 +146,9 @@ namespace CA3_Blackjack
                         }
                     }
                     //Add new card value to the total and display which card was dealt
-                    playerTotal += cardValue; 
-                    
+                    playerTotal += cardValue;
+                    //Reset font color
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
                     //Print out the player total
                     Console.WriteLine("Player total is {0}", playerTotal);
                     //Pause the program
@@ -206,6 +213,8 @@ namespace CA3_Blackjack
                     }
                     //Add new card value to the total and display which card was dealt
                     dealerTotal += cardValue;
+                    //Reset font color
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
                     //Display new total for dealer
                     Console.WriteLine("Dealer total is {0}", dealerTotal);
                     //Pause the script
@@ -234,6 +243,8 @@ namespace CA3_Blackjack
                 #endregion Dealers Turn 
 
                 #region Decide Results
+                //Reset font color
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 //If player has <= 21 but more than dealer they win
                 if ((dealerTotal < playerTotal) && (playerTotal <= 21)) 
                     {
@@ -289,6 +300,9 @@ namespace CA3_Blackjack
                 #endregion Decide Results
 
                 #region DisplayResults
+                //Reset Output text colour
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+
                 //If the player has won calculate player winnings and display
                 if (playerWins == true)
                     {
@@ -337,6 +351,10 @@ namespace CA3_Blackjack
         //Display Instructions to the user
         private static void DisplayInstructions()
         {
+            Console.WindowHeight = 25;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
             Console.WriteLine("\t\t\t*****Welcome to my BlackJack application******\n\n");
             Console.WriteLine("Before the game starts you will be asked how much you want to bet on the hand\n" +
                               "When a new game begins you will be dealt 2 cards by default.\n" +
@@ -358,6 +376,7 @@ namespace CA3_Blackjack
         {
             //Create string variable for user response
             string userInput;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("Would you like to stick or twist?\nEnter s to stick or t to twist....\n");
             //Convert all response to lowercase so case is ignored
             userInput = Console.ReadLine().ToLower();
@@ -379,6 +398,7 @@ namespace CA3_Blackjack
             double wager;
             bool validAmount;
             //Ask the user how much to bet
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("How much would you like to bet on the game?");
             //Check if the entry from user is valid
             validAmount = double.TryParse(Console.ReadLine(), out wager);
@@ -410,6 +430,7 @@ namespace CA3_Blackjack
                 winnings = wager * WIN;
             }
             //Print winnings on screen
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("User has won {0:C}",winnings);
             Console.ReadLine();
         }

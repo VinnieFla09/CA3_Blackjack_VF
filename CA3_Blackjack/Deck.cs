@@ -175,6 +175,13 @@ namespace CA3_Blackjack
             suit = newCard.Suit;
             //Store the face of the new card
             cardFace = newCard.Face;
+            //Change color of output text based on card face
+            if (suit == "Hearts" || suit == "Diamonds")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+            }
+            else
+                Console.ForegroundColor = ConsoleColor.Black;
             //Print the card details to screen
             Console.WriteLine("Card is {0} of {1}.",cardFace,suit);
             //Return the card value
